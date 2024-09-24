@@ -1,0 +1,34 @@
+
+//Es para definir los diferentes leds y el boton con su respectivo pin
+#define ledAzul 1
+#define ledRojo 3
+#define ledAmarillo 5
+#define ledVerde 7
+#define boton 10
+
+void setup() {
+  // Configuración del arduino
+  // Declaramos todos los leds como salidas y al boton como como input (entrada)con el pullup(es decir, cuando se presiona el botón hará algo, y cuando no se epresiona no. En el caso del pull down, si NO se presiona hará esa cosa)interno de arduino
+  pinMode(ledAzul,OUTPUT);
+  pinMode(ledRojo,OUTPUT);
+  pinMode(ledAmarillo,OUTPUT);
+  pinMode(ledVerde,OUTPUT);
+  pinMode(boton, INPUT_PULLUP);
+}
+
+void loop() {
+    if(digitalRead(boton)==LOW){   //Si se pulsa el boton
+    //Todos los leds se prenden
+    digitalWrite(ledAzul,HIGH);   
+    digitalWrite(ledRojo,HIGH);
+    digitalWrite(ledAmarillo,HIGH);
+    digitalWrite(ledVerde,HIGH);
+  }else{ //Si no se presiona
+    //No se prenden los leds1
+    digitalWrite(ledAzul,LOW);
+    digitalWrite(ledRojo,LOW);
+    digitalWrite(ledAmarillo,LOW);
+    digitalWrite(ledVerde,LOW);
+  }
+}
+
